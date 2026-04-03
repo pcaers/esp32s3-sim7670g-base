@@ -1,0 +1,4 @@
+## IDF Component Manager — add esp32-camera from Espressif component registry
+dependencies:
+  espressif/esp32-camera:
+    version: ">=2.0.0"

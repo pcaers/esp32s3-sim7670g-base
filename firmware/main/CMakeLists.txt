@@ -1,0 +1,24 @@
+idf_component_register(
+    SRCS
+        "main.c"
+        "board.c"
+        "camera.c"
+        "sim7670.c"
+        "ble.c"
+        "wifi_manager.c"
+        "webserver.c"
+    INCLUDE_DIRS "."
+    REQUIRES
+        esp_driver_gpio
+        esp_driver_uart
+        esp_http_server
+        esp_wifi
+        esp_event
+        nvs_flash
+        bt
+        driver
+        esp_timer
+        fatfs
+        sdmmc
+        json
+)
