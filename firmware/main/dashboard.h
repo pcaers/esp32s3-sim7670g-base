@@ -107,7 +107,7 @@ static const char DASHBOARD_HTML[] =
 "function row(label,val){"
 "  const d=document.createElement('div');d.className='row';"
 "  const l=document.createElement('span');l.className='label';l.textContent=label;"
-"  const v=document.createElement('span');v.className='value';v.textContent=String(val??'-');"
+"  const v=document.createElement('span');v.className='value';v.textContent=String(val!=null?val:'-');"
 "  d.appendChild(l);d.appendChild(v);return d;"
 "}"
 

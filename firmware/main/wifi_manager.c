@@ -162,10 +162,10 @@ esp_err_t wifi_manager_init(void) {
 
     if (has_sta) {
         ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_APSTA));
-        s_status.mode = WIFI_MODE_APSTA;
+        s_status.mode = APP_WIFI_MODE_APSTA;
     } else {
         ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_AP));
-        s_status.mode = WIFI_MODE_AP_ONLY;
+        s_status.mode = APP_WIFI_MODE_AP_ONLY;
     }
 
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_AP, &ap_cfg));
@@ -187,7 +187,7 @@ esp_err_t wifi_manager_set_sta(const char *ssid, const char *password) {
     if (current == WIFI_MODE_AP) {
         ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_APSTA));
     }
-    s_status.mode = WIFI_MODE_APSTA;
+    s_status.mode = APP_WIFI_MODE_APSTA;
 
     esp_err_t ret = connect_sta(ssid, password);
     if (ret == ESP_OK) {
@@ -203,7 +203,7 @@ esp_err_t wifi_manager_clear_sta(void) {
     s_status.sta_connected = false;
     memset(s_status.sta_ip,   0, sizeof(s_status.sta_ip));
     memset(s_status.sta_ssid, 0, sizeof(s_status.sta_ssid));
-    s_status.mode = WIFI_MODE_AP_ONLY;
+    s_status.mode = APP_WIFI_MODE_AP_ONLY;
     esp_wifi_set_mode(WIFI_MODE_AP);
     ESP_LOGI(TAG, "STA credentials cleared");
     return ESP_OK;

@@ -1,5 +1,8 @@
 #pragma once
 
+#include "driver/uart.h"  // for UART_NUM_1
+#include "driver/gpio.h"  // for GPIO_NUM_*
+
 // ═══════════════════════════════════════════════════════════════════════════
 // Waveshare ESP32-S3-SIM7670G-4G Board GPIO Map
 // Source: Waveshare ESP32-S3-A-SIM7670X-4G-V2 official examples
@@ -56,3 +59,7 @@
 
 // ── Webserver ─────────────────────────────────────────────────────────────
 #define WEBSERVER_PORT  80
+
+// ── Board functions ───────────────────────────────────────────────────────
+void board_led_init(void);
+void board_led_set(int level);

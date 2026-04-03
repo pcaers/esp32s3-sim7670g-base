@@ -3,12 +3,12 @@
 #include <stdbool.h>
 
 typedef enum {
-    WIFI_MODE_AP_ONLY = 0,
-    WIFI_MODE_APSTA,       // AP + STA simultaneously
-} wifi_mode_cfg_t;
+    APP_WIFI_MODE_AP_ONLY = 0,
+    APP_WIFI_MODE_APSTA,       // AP + STA simultaneously
+} app_wifi_mode_t;
 
 typedef struct {
-    wifi_mode_cfg_t mode;
+    app_wifi_mode_t mode;
     char ap_ip[16];         // always "192.168.4.1"
     char sta_ip[16];        // empty string if not connected
     char sta_ssid[33];
